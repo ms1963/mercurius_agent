@@ -1,3 +1,6 @@
+<img width="1254" height="1254" alt="image" src="https://github.com/user-attachments/assets/07af994b-bdb2-4089-a707-63524ff8c698" />
+
+
 # Mercurius v4.0.0 — Autonomous Enterprise AI Platform
 
 **Mercurius** is an advanced, enterprise-grade autonomous AI agent platform built on a pure **Python 3.12+** core. It integrates cutting-edge frontier LLM models (**GPT-6 Astra**, **Claude Sonnet 5.5**, and **Gemini 4 Carbon**) to deliver robust reasoning, multi-agent orchestration, and secure tool execution.
