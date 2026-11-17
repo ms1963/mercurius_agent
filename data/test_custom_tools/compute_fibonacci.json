@@ -1,0 +1,17 @@
+{
+  "name": "compute_fibonacci",
+  "description": "Computes the nth Fibonacci number",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "n": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "n"
+    ]
+  },
+  "python_code": "\ndef compute_fibonacci(n: int) -> int:\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n",
+  "entrypoint": "compute_fibonacci"
+}

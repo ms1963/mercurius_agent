@@ -1,0 +1,14 @@
+{
+  "llm_budgets": [
+    {
+      "llm_id": "chatllm:gpt-4o",
+      "token_limit": 5000,
+      "used_tokens": 1050,
+      "total_requests": 1,
+      "is_blocked": false,
+      "overwritten_at": 1794846823.975441,
+      "overwritten_count": 1
+    }
+  ],
+  "updated_at": 1794846823.9755082
+}

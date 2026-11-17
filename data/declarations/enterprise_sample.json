@@ -1,0 +1,115 @@
+{
+  "$schema": "https://mercury.ai/schemas/declarations.v1.json",
+  "version": "1.0",
+  "description": "Declarative configuration for Tools, Personalities, Skills, Channels, and Multi-Agent Topologies",
+  "tools": [
+    {
+      "name": "calc_gross_margin",
+      "description": "Calculates gross profit margin percentage from revenue and cogs",
+      "type": "expression",
+      "expression": "round(((revenue - cogs) / revenue) * 100, 2) if revenue else 0.0",
+      "parameters": {
+        "revenue": {
+          "type": "number",
+          "description": "Total revenue"
+        },
+        "cogs": {
+          "type": "number",
+          "description": "Cost of goods sold"
+        }
+      }
+    },
+    {
+      "name": "system_uptime_check",
+      "description": "Checks local sandbox load average or simulated ping",
+      "type": "bash",
+      "command": "uptime | awk -F'load average:' '{ print $2 }'",
+      "parameters": {}
+    }
+  ],
+  "personalities": [
+    {
+      "id": "cloud_finops_expert",
+      "name": "Cloud FinOps Architect",
+      "role": "Cloud Cost Optimization & Unit Economics Specialist",
+      "tone": "Rigorous, analytical, ROI-focused",
+      "system_prompt": "You are a Cloud FinOps expert specializing in multi-cloud architecture, reserved instances, Kubernetes cluster right-sizing, and cost allocation.",
+      "posa_patterns": [
+        "Resource Allocation",
+        "Pipes and Filters",
+        "Microservices Tiering"
+      ],
+      "constraints": [
+        "Prioritize unit economics and cost optimization",
+        "Provide exact formula and metrics"
+      ]
+    },
+    {
+      "id": "compliance_auditor_eu",
+      "name": "EU Regulatory & Compliance Auditor",
+      "role": "Senior Auditor for EU AI Act, GDPR, and ISO 27001",
+      "tone": "Formal, objective, meticulous",
+      "system_prompt": "You are a senior regulatory auditor ensuring full conformity with EU AI Act High-Risk categorization, GDPR data sovereignty, and auditability.",
+      "constraints": [
+        "Cite relevant articles and risk tiers",
+        "Flag unexplainable black-box models"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "summarize_pr_review",
+      "description": "Generates an executive architectural PR review summary",
+      "inputs": {
+        "pr_title": "string",
+        "diff_summary": "string"
+      },
+      "template": "### PR Architectural Review: {pr_title}\n**Key Changes:**\n{diff_summary}\n\n**Verdict:** Reviewed against enterprise scalability and POSA patterns."
+    }
+  ],
+  "channels": [
+    {
+      "name": "enterprise_slack_alerts",
+      "channel_type": "slack",
+      "webhook_url": "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX",
+      "secret_key": "sec_slack_enterprise_hmac",
+      "enable_dlp": true,
+      "active": true
+    },
+    {
+      "name": "siemens_teams_incident_bridge",
+      "channel_type": "teams",
+      "webhook_url": "https://siemens.webhook.office.com/webhookb2/bridge",
+      "secret_key": "sec_teams_incident_sig",
+      "enable_dlp": true,
+      "active": true
+    }
+  ],
+  "coordinations": [
+    {
+      "name": "security_finops_dual_consensus",
+      "pattern": "consensus",
+      "agents": [
+        "CISO",
+        "cloud_finops_expert",
+        "Lead QA"
+      ],
+      "config": {
+        "consensus_threshold": 0.67,
+        "timeout_seconds": 30
+      }
+    },
+    {
+      "name": "architecture_release_pipeline",
+      "pattern": "pipeline",
+      "agents": [
+        "Software Architect",
+        "SecurityAnalyst",
+        "Lead QA"
+      ],
+      "config": {
+        "halt_on_failure": true
+      }
+    }
+  ]
+}

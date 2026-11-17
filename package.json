@@ -1,0 +1,29 @@
+{
+  "name": "mercurius-agent",
+  "version": "1.0.0",
+  "description": "Mercury: Enterprise-Grade Polyglot Autonomous Agentic AI System with Jev System-1 Triage, MCP 2026, Multi-Agent Workflows, and Dual UI",
+  "type": "module",
+  "main": "src/index.ts",
+  "bin": {
+    "mercurius": "./bin/mercury.js"
+  },
+  "scripts": {
+    "start": "node --experimental-strip-types src/index.ts",
+    "cli": "node --experimental-strip-types src/index.ts cli",
+    "server": "node --experimental-strip-types src/index.ts server",
+    "mcp": "node --experimental-strip-types src/index.ts mcp",
+    "test": "node --experimental-strip-types --test tests/*.test.ts"
+  },
+  "keywords": [
+    "agentic-ai",
+    "hermes-agent",
+    "mcp",
+    "jev",
+    "react",
+    "multi-agent",
+    "llm-routing",
+    "guardrails"
+  ],
+  "author": "Mercurius Systems Team (Inspired by Hermes & POSA)",
+  "license": "Apache-2.0"
+}

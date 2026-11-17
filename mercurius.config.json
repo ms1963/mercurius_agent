@@ -1,0 +1,142 @@
+{
+  "system": {
+    "name": "Mercurius Prime",
+    "version": "2.0.0",
+    "environment": "production",
+    "default_language": "en"
+  },
+  "jev": {
+    "enabled": true,
+    "api_url": "http://localhost:8080/v1/decide",
+    "api_key": ""
+  },
+  "llm": {
+    "default_tier": "chatllm",
+    "default_provider": "chatllm",
+    "default_model": "gpt-6.1-sol",
+    "base_url": "https://paas.api.abacus.ai/v1",
+    "api_key_env": "ABACUS_API_KEY",
+    "providers": {
+      "chatllm": {
+        "base_url": "https://paas.api.abacus.ai/v1",
+        "api_key_env": "ABACUS_API_KEY",
+        "models": [
+          "gpt-6.1-sol",
+          "gpt-6-astra",
+          "claude-fable-5.2",
+          "gemini-4-hydrogen",
+          "deepseek-v4-pro"
+        ]
+      },
+      "openai": {
+        "base_url": "https://api.openai.com/v1",
+        "api_key_env": "OPENAI_API_KEY",
+        "models": [
+          "gpt-6.1-sol",
+          "gpt-6-astra",
+          "gpt-6.1-terra"
+        ]
+      },
+      "anthropic": {
+        "base_url": "https://api.anthropic.com/v1",
+        "api_key_env": "ANTHROPIC_API_KEY",
+        "models": [
+          "claude-fable-5.2",
+          "claude-sonnet-5.5",
+          "claude-haiku-5.5"
+        ]
+      },
+      "google": {
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+        "api_key_env": "GEMINI_API_KEY",
+        "models": [
+          "gemini-4-hydrogen",
+          "gemini-4-carbon"
+        ]
+      },
+      "deepseek": {
+        "base_url": "https://api.deepseek.com/v1",
+        "api_key_env": "DEEPSEEK_API_KEY",
+        "models": [
+          "deepseek-v4-pro",
+          "deepseek-v4.1-flash"
+        ]
+      },
+      "grok": {
+        "base_url": "https://api.x.ai/v1",
+        "api_key_env": "XAI_API_KEY",
+        "models": [
+          "grok-4.7"
+        ]
+      },
+      "kimi": {
+        "base_url": "https://api.moonshot.cn/v1",
+        "api_key_env": "MOONSHOT_API_KEY",
+        "models": [
+          "kimi-k3.1-pro"
+        ]
+      },
+      "minimax": {
+        "base_url": "https://api.minimax.chat/v1",
+        "api_key_env": "MINIMAX_API_KEY",
+        "models": [
+          "minimax-m3.1-flash"
+        ]
+      },
+      "ollama": {
+        "base_url": "http://localhost:11434/v1",
+        "api_key_env": "OLLAMA_API_KEY",
+        "models": [
+          "llama3.3:latest",
+          "qwen2.5:72b",
+          "deepseek-r1:32b",
+          "mistral-large"
+        ]
+      },
+      "lmstudio": {
+        "base_url": "http://localhost:1234/v1",
+        "api_key_env": "LMSTUDIO_API_KEY",
+        "models": [
+          "local-model",
+          "qwen2.5-coder-32b-instruct",
+          "llama-3.3-70b-instruct"
+        ]
+      }
+    }
+  },
+  "mcp": {
+    "server_enabled": true,
+    "server_port": 8080,
+    "external_servers": []
+  },
+  "memory": {
+    "sqlite_path": "data/memory/mercury_memory.sqlite",
+    "fts5_enabled": true
+  },
+  "security": {
+    "jwt_secret": "mercury_master_secret_2026",
+    "anti_injection_enabled": true,
+    "default_daily_token_budget": 100000
+  },
+  "channels": {
+    "telegram": {
+      "enabled": false,
+      "bot_token": ""
+    },
+    "discord": {
+      "enabled": false,
+      "bot_token": ""
+    },
+    "signal": {
+      "enabled": false
+    },
+    "whatsapp": {
+      "enabled": false
+    },
+    "email": {
+      "enabled": false,
+      "imap_server": "",
+      "smtp_server": ""
+    }
+  }
+}

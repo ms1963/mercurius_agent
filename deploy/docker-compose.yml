@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mercury-agent:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    container_name: mercury-agent
+    restart: unless-stopped
+    ports:
+      - "4100:4100"   # Web UI Dashboard
+      - "4101:4101"   # MCP Server JSON-RPC / SSE
+    environment:
+      - NODE_ENV=production
+      - MERCURY_LOCALE=en
+      - MERCURY_PORT=4100
+      - MERCURY_MCP_PORT=4101
+      - MERCURY_JEV_ENABLED=true
+    volumes:
+      - mercury_data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4100/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  mercury_data:
